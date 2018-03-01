@@ -1,0 +1,88 @@
+<HTML><HEAD><TITLE>DOSPRN-1.85-codepages-support</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="Keywords" content="driver dos printer, kode dos, dos codepages, dos codepages, dos printer, driver dos usb, driver dos cetakan, DOS, printer, program, cetakan, printer, USB, program, LPT, Program DOS, perangkat lunak, nasional, bahasa, internanional">
+<META name="Description" content="DOSPRN memungkinkan untuk gunakan program dos favorit anda dengan printer-printer baru secara independen dari tipe-tipenya (ya dan USB juga !)"><meta http-equiv="Content-Language" content="id"><!-- by Sisulizer -->
+<meta name=viewport content="width=device-width, initial-scale=1">
+</head>
+<BODY background="images/bg2.jpg">
+<DIV align="center">
+<TABLE cellSpacing="0" cellPadding="0" width="550" border="0">
+
+<TR>
+<TD width="100%">
+<TABLE cellSpacing="0" cellPadding="0" border="0">
+
+<TR>
+<TD width="50"><IMG height="39" alt="Mencetak dari DOS di ke/terhadap printer ber jalan pada Windows98, WinXP, Windows2000" src="images/logo.gif" width="42"></TD>
+<TD width="281"><FONT size="6"><B>DOSPRN 1.85</B></FONT></TD>
+<TD width="194">
+<TABLE cellSpacing="4" cellPadding="4" bgColor="#c0c0c0" border="2">
+
+<TR>
+          <td><a href="http://www.dosprn.com"><img src="images/uno_fl_s.gif" align="center" width="30" height="20" alt="Dos print international support center DOSPRN" border=0></a></td>
+          <td><a href="http://ukrainian.dosprn.com" id="ukrainian"><img src="images/ukraine_fl_s.gif" width="30" height="20" alt="DOSPRN Ukrainian dos print support center" align="center" border="0"></a></td>
+          <td><a href="http://polska.dosprn.com"><img src="images/poland_fl_s.gif" width="30" height="20" alt="Dosprinter Polish support center" align="center" border="0"></a></td>
+                    <td><a href="http://dosprn.co.il"><img src="images/israel_fl_s.gif" width="30" height="20" alt="DOSPRN Israel dos usb support center" align="center" border="0"></a></td>
+          <td><a href="http://bkltd.com/dosprn/"><img src="images/bulgaria_fl_s.gif" width="30" height="20" alt="DOSPRN Bulgaria dos print support center" align="center" border="0"></a></td>
+
+          <td><a href="http://indonesian.dosprn.com"><img src="images/indonesia_fl_s.gif" width="30" height="20" alt="Indonesian DOSPRN support center" align="center" border="0"></a></td>
+          <td><a href="http://dosprn.cz/index.php?doorkey=kontakt"><img src="images/chech_fl_s.gif" width="30" height="20" alt="DOS USB Czech support center" align="center" border="0"></a></td>
+</TR></TABLE></TD></TR></TABLE></TD></TR>
+<TR>
+<TD align="middle" width="100%">
+<HR>
+<A href="index.htm">Tentang</A> | <A href="readme.htm">Manual</A> | <A href="news.htm">Hal baru</A> | <A href="download.htm">Download </A>| <A href="vox.htm">Vox populi</A> | <A href="order.htm">Pesan</A> | <A href="faq.htm">Tanya-jawab (F.A.Q)</A> | <A href="mailto:support@dosprn.com?Subject=DOSPRN%20support">Dukungan</A> | <A href="login.htm"> Login </A>
+<HR>
+</TD></TR>
+<TR>
+<TD width="100%">
+<H3>Penjelasan modul Codepage</H3>
+<P>DOSPRN mendukung bermacam-macam codepages Sekarang, codepages 850 (Eropa Timur), 852 (Eropa Barat), 737 (Yunani), 437 (AS), 857 (Turki), 862 (Ibrani), 775 (Latvian), 771 (Lithuanian), 1125 (Ukrainian), 855 (Bulgaria), dan 866 (Russia) adalah didukung.</P>
+<P>Lebih lagi, user dapat membuat modul dukungan codepage yang lain. Setiap modul bahasa adalah satu berkas (file) teks dengan. <B>Halaman kode emulasi </B>perluasan/extension. File ini termasuk tipe string dibawah.:</P><PRE><B><I>ascii_letter=unicode</I></B></PRE>
+<P>Dalam contoh ini, &quot;ascci_letter&quot; adalah simbol standard DOS Sejak pertengahan awal dari tabel ASCII (kode dari 0 sampai 127) berisi simbol yang tidak dapat dicetak, huruf Romawi, simbul dan angka, kami merekomendasikan bahwa anda menetapkan hanya kedua setengah dari tabel ASCII (kode dari 128 sampai 255).</P>
+<P>Ini adalah bagian dari tabel yang biasanya berisikan huruf dari alfabet nasional. Jiplakan Mereka adalah ditentukan oleh jenis codepage bahwa anda menggunakan di/dalam DOS. Anda harus mencari huruf sesuai didalam tabel Unicode dan menulis kode nya setelah tanda sama dengan. Anda bisa menulis satu Unicode nomor keduanya, yaitu di/dalam sistim desimal dan format hexadecimal. Dalam kasus kedua, jumlahnya harus didahului dengan tanda &quot;$&quot;. .</P>
+<P>Sebagai contoh, anda bisa menggambarkan "?" simbol sebagai ?=$00C6 atau ?=198.</P>
+<P>Jika huruf ASCII dan huruf Unicode mengikuti satu persatu, anda bisa menggunakan bentuk yang lebih ringkas</P><PRE><B><I>ascii_letter1..ascii_letter2=unicode1..unicode2</I></B></PRE>
+<P>dimana "letter1..letter2" adalah satu range dari huruf DOS dan "unicode1..unicode2" adalah satu range dari Unicode simbol yang bersesuaian.</P>
+<P>Anda bisa mengcopy berkas (file) modul bahasa apapun ke satu berkas (file) baru (tetapi dengan extention yang sama) dan membuka itu melalui editor teks DOS. Kemudian anda bisa memodifikasi string Unicode dan merekam (save) file ini.</P>
+<P>Setelah anda melakukan pembaharuan file codepage, anda harus restart DOSPRN dan modul codepage anda akan terisi.</P>&nbsp;</TD></TR>
+<TR>
+<TD align="middle" width="100%">
+<HR>
+      <FONT size="3"><A href="index.htm">Tentang</A> | <A href="readme.htm">Manual</A> | <A href="news.htm">Berita baru</A> | <A href="download.htm">Download </A>| <A href="vox.htm">Vox populi</A> | <A href="order.htm">Pesan</A> | <A href="faq.htm">Tanya-jawab</A> | <A href="mailto:support@dosprn.com?Subject=DOSPRN%20support">Dukungan</A> | <A href="download.htm"> Login </A></FONT> 
+<HR>
+</TD></TR></TABLE></DIV>
+<!--WEBSITECEO:BEGIN:{764EEF2E-BC11-45CF-8627-300CE1BA2219}-->
+<!--
+Do NOT modify this script to avoid traffic misrepresentation! 
+Web CEO 4 0300/1
+Code initially inserted into: "/codepages.htm".
+-->
+<script type="text/javascript"><!--
+// hitlens v1.2.7
+function hitlens_embedded() {
+var id = 5192;
+var pc = 94;
+var PAGENAME = escape('');
+var CONTENTGROUP = escape('');
+var TRANSACTION = escape('');
+var TRANSACTION_ID = 0;
+var ORDER = escape('');
+return "id="+id+"&pc="+pc+"&p="+PAGENAME+"&gr="+CONTENTGROUP+"&tr="+TRANSACTION+"&trid="+TRANSACTION_ID+"&ord="+ORDER;
+}
+//--></script>
+<script type="text/javascript" src="/webceo.js"></script>
+<!--WEBSITECEO:END:{764EEF2E-BC11-45CF-8627-300CE1BA2219}-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39647417-1', 'dosprn.com');
+  ga('send', 'pageview');
+
+</script>
+</body></HTML>

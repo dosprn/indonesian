@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>DOSPRN 1.85 supported ESC sequences</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="Keywords"  content="dos printer driver, dos printer, dos usb driver, dos print command, DOS, printers, program, print, printer, USB, programs, LPT, DOS program, software, national, language, internanional" >
+<META name="Description"  content="DOSPRN memungkinkan untuk gunakan program dos favorit anda dengan printer-printer baru secara independen dari tipe-tipenya (ya dan USB juga !)" ><meta http-equiv="Content-Language" content="id"><!-- by Sisulizer -->
+<meta name=viewport content="width=device-width, initial-scale=1">
+</head>
+<BODY background="images/bg2.jpg">
+<DIV align="center">
+<CENTER>
+<TABLE cellSpacing="0" cellPadding="0" width="550" border="0">
+  
+  <TR>
+    <TD width="100%">      <table border="0" cellspacing="0" cellpadding="0" width="630">
+        <tr>
+          <td width="50"><IMG src="images/logo.gif" ALT="Mencetak dari DOS di ke/terhadap printer ber jalan pada Windows98, WinXP, Windows2000" width="42" height="39"></td>
+          <td width="345"><font size="6"><b>DOSPRN </b></font><font size="6"><b>1.85</b></font></td>
+          <td width="229">      
+      <table border="2" bgcolor="#C0C0C0" cellpadding="4" cellspacing="4">
+        <tr>
+          <td><a href="http://www.dosprn.com"><img src="images/uno_fl_s.gif" align="center" width="30" height="20" alt="Dos print international support center DOSPRN" border=0></a></td>
+          <td><a href="http://ukrainian.dosprn.com" id="ukrainian"><img src="images/ukraine_fl_s.gif" width="30" height="20" alt="DOSPRN Ukrainian dos print support center" align="center" border="0"></a></td>
+          <td><a href="http://polska.dosprn.com"><img src="images/poland_fl_s.gif" width="30" height="20" alt="Dosprinter Polish support center" align="center" border="0"></a></td>
+                    <td><a href="http://dosprn.co.il"><img src="images/israel_fl_s.gif" width="30" height="20" alt="DOSPRN Israel dos usb support center" align="center" border="0"></a></td>
+          <td><a href="http://bkltd.com/dosprn/"><img src="images/bulgaria_fl_s.gif" width="30" height="20" alt="DOSPRN Bulgaria dos print support center" align="center" border="0"></a></td>
+
+          <td><a href="http://indonesian.dosprn.com"><img src="images/indonesia_fl_s.gif" width="30" height="20" alt="Indonesian DOSPRN support center" align="center" border="0"></a></td>
+          <td><a href="http://dosprn.cz/index.php?doorkey=kontakt"><img src="images/chech_fl_s.gif" width="30" height="20" alt="DOS USB Czech support center" align="center" border="0"></a></td>
+        </tr>
+      </table>
+			</td>
+        </tr></table>
+</TD></TR>
+  <TR>
+    <TD align="middle" width="100%">
+      <HR>
+      <A href="index.htm">Tentang</A> | <A href="readme.htm">Manual</A> | <A href="news.htm">Hal baru</A> | <A href="download.htm">Download </A>| <A href="vox.htm">Vox populi</A> | <A href="order.htm">Pesan</A> | <A href="faq.htm">Tanya-jawab (F.A.Q)</A> | <A href="mailto:support@dosprn.com?Subject=DOSPRN%20support">Dukungan</A> | <A href="login.htm"> Login </A>
+
+      <HR>
+    </TD></TR>
+  <TR>
+    <TD width="100%">
+      <h3>Penjelasan Sekuen</h3>
+      <p>Sekuen adalah setting khusus dari code ASCII yang digunakan untuk mengatur tampilan selama dimapilkan oelh devais pencetakan. Untuk conto, semua perinter Epson kompatibel mendukung sekuen dari standar ESC-P/ESC-P2. (i.e. ES-sequences).<br>
+        <br>
+       Urutan memungkinkan mengubah ukuran dan tinggi simbol, kerapatan horisontal dan vertikal dari cetakan, dan memungkinkan mecetak objek grafik.<br>
+        <br>
+      DOSPRN saat ini bisa menandingi sepasang fitur pencetakan. Dengan default, DOsPRN mendukung <a href="#1">palette</a> sekuen, tetapi ini dapat mengatasi beberapa dari satu hal penting dan sering menggunakan sumber dari <a href="#3">ESC-P2</a> dan standar <a href="#3">HP-PCL</a>.</p>
+      <p>Palete HP-PCL dan berguna jika Program DOS anda didesgn untun mencetak pada printer Hewlett Packard, tetapi ini tidak harus seperti satu printer atau anda ingin mengembangkan fungsionalnya.
+      </p>
+      <p>Satu meta bahasa DOSPRN sedang dikembangkan. Bahasa ini akan mengizinkan kita untuk menjelaskan variasi sekuen yang lebih baik.</p><br>
+    </TD></TR>
+  <TR>
+    <TD width="100%">
+      <h3>Sintak Sekuen</h3>
+      <p>Masing-masing mode pencetakan memungkinkan didalam DOSPRN menyesuaikan untuk satu atau lebih sekuen escape (sinonim) pada setiap palet. Bahasa dari sekuen DOSPRN mempunyai beberapa fitur berbeda.
+      <ul type="circle">
+        <li>tiap code ASCII non cetakan kelihatan seperti <b><font face="Courier New">[#XX]</font></b>, dimana <font face="Courier New"><b>XX</b></font> adalah satu nilai code</li>
+        <li>Semua sinonim adalah dibagi dengan simbol double pipe (i.e <b><font face="Courier New">||</font></b>)</li>
+        <li>setiap sekuen yang berisi parameter (fontsize, LPI, CPI, warna dan lain-lain) harus ditulis dalam definisi sekuen dengan zeroes atau satu bilangan mengisyaratkan didalam tanda kurung (bracket) didalam posisi parameter.&nbsp;<br>
+        <br>
+          -- Jika satu nol digunakan, simbol apapun ditempatkan oleh program-DOS didalam urutan akan diterjemahkan ketika pandangan string/rantai ASCII dari parameter. Sebagai contoh, jika satu sekuen adalah didefinisikan sebagai <b> <font face="Courier New">[#27]X{0000}</font></b> dan program-DOS mengirim string/rantai <b><font face="Courier New">[#27]X1234</font></b>, kemudian DOSPRN akan memutuskan bahwa parameter &quot;1234&quot;<br>
+        <br>
+          -- Jika satu nol dengan tambah digunakan, kuantitas apapun dari simbol numerik ditempatkan oleh program-DOS didalam sekuen akan diterjemahkan ketika view string ASCII dari parameter. Sebagai contoh, jika satu sekuen didefinisikan sebagai <b> <font face="Courier New">[#27]X{0+}</font></b> dan program-DOS mengirim string <b><font face="Courier New">[#27]Y123</font></b>, kemudian DOSPRN akan memutuskan bahwa parameter &quot;123&quot;<br>
+        <br>
+        -- Jika satu bilangan mengisyaratkan digunakan, simbol apapun ditempatkan oleh program-DOS didalam urutan akan diterjemahkan sebagai sebuah kode dari simbol ini. Sebagai contoh, jika satu sekuen didefinisikan sebagai <b><font face="Courier New">[#27]r{#}</font></b> dan program-DOS mengirim string <b><font face="Courier New">[#27]r0</font></b>, kemudian DOSPRN akan memutuskan bahwa parameter &quot;48&quot; (sejak 48 adalah satu kode dari simbol ASCII '0')<br>
+        <br>
+        -- Jika satu bilangan mengisyaratkan dengan tambah digunakan, kuantitas apapun dari simbol adalah ditempatkan oleh program-DOS didalam sekuen akan diterjemahkan sebagai sebuah kode dari simbol ini. Sebagai contoh, jika satu sekuen didefinisikan sebagai <b><Font face="Courier New"> [#27]t{#+}[#00]</font></b> dan program-DOS mengirim string <b><font face="Courier New">[#27]t12[#00]</font></b>, kemudian DOSPRN akan memutuskan bahwa parameter &quot;49&quot; dan &quot;50&quot; (sejak 49 adalah satu kode dari simbol ASCII '1' dan 50 adalah satu kode dari simbol ASCII '2')<br>
+        <br>
+        -- Jika satu tanda titik dua digunakan, kuantitas apapun dari simbol sebelumnya akan diterjemahkan sebagai sebuah awalan dari sekuen campuran (PCL)<br>
+        <br>
+        -- Jika satu titik koma adalah digunakan, hal ini akan diterjemahkan sebagai sebuah perpanjangan dari sekuen campuran (PCL)</li>
+      </ul>
+      <p>&nbsp;</TD></TR>
+  <TR>
+    <TD width="100%">
+      <H3><a name="1"></a>Default sekuen</H3>
+      <p align="center">
+      <img border="0" src="images/seq-default.png" width="433" height="486" alt="defaulf sekuen print dos">
+      <div align="center">
+        <center>
+      <TABLE cellSpacing="1" cellpadding="5" width="100%" border="1">
+        
+        <TR>
+          <TD align="left">(Esc) OP</TD>
+          <TD align="left">
+            <p align="center">Pilih orientasi halaman potrait</p>
+          </TD></TR>
+        <TR>
+          <TD align="left">(Esc) OL</TD>
+          <TD align="left">Pilih orientasi halaman landscape</TD></TR>
+        <TR>
+          <TD align="left">(Esc) P{00}</TD>
+          <TD align="left">Set lebar huruf (chars per inch) dalam xx. Secara defaulf diterima xx=12</TD></TR>
+        <TR>
+          <TD align="left">(Esc) L{00}</TD>
+          <TD align="left">Set tinggi huruf (baris per inch ) dalam xx. Secara defaut diterima xx=06</TD></TR>
+        <TR>
+          <TD align="left">(Esc) C${000000}</TD>
+          <TD align="left">Set warna text dimana xxxxxx adalah warna standar RGB dijelaskan dalam hex</TD></TR>
+        <tr>
+          <TD align="left">(Esc) F{00}</TD>
+          <TD align="left">Set ukuran huruf dalam xx. Secara defauld diterima xx=10</TD>
+        </tr>
+        <TR>
+          <TD align="left">(Esc) X{0000}</TD>
+          <TD align="left">Set posisi absolute horizontal dalam 1/720&quot; unit</TD></TR>
+        <tr>
+          <TD align="left">(Esc) Y{0000}</TD>
+          <TD align="left">Set posisi absolut vertikal dalam 1/720&quot; unit</TD>
+        </tr>
+        <TR>
+          <TD align="left">(Esc) B</TD>
+          <TD align="left">Set style ketebalan huruf</TD></TR>
+        <TR>
+          <TD align="left">(Esc) b</TD>
+          <TD align="left">Unset style ketebalan huruf</TD></TR>
+        <TR>
+          <TD align="left">(Esc) I</TD>
+          <TD align="left">Set style italic huruf</TD></TR>
+        <TR>
+          <TD align="left">(Esc) i</TD>
+          <TD align="left">Unset style italic huruf</TD></TR>
+        <TR>
+          <TD align="left">(Esc) U</TD>
+          <TD align="left">Set style garis bawah huruf</TD></TR>
+        <TR>
+          <TD align="left">(Esc) u</TD>
+          <TD align="left">Unset garis bawah style huruf</TD></TR>
+        <TR>
+          <TD align="left">(Esc) S</TD>
+          <TD align="left">Set stikeout style huruf</TD></TR>
+        <TR>
+          <TD align="left">(Esc) s</TD>
+          <TD align="left">Unset style strikeout huruf</TD></TR></TABLE>
+        </center>
+      </div>
+      <p>&nbsp;</TD></TR>
+  <tr>
+    <TD width="100%">
+      <H3><a name="2"></a>Sekuen emulasi ESC-P2</H3>
+      <p align="center">
+      <img border="0" src="images/seq-epson.png" width="433" height="486" alt="sekuen pencetakan dos compatible epson">
+      <TABLE cellSpacing="1" cellPadding="5" border="1" width="630" height="768">
+        
+        <TR>
+          <TD height="19">(Esc) E or&nbsp;(Esc) G</TD>
+          <TD height="19">Set style ketebalan huruf</TD></TR>
+        <TR>
+          <TD height="19">(Esc) F or&nbsp;(Esc) H</TD>
+          <TD height="19">Unset style ketebalan huruf</TD></TR>
+        <TR>
+          <TD height="19">(Esc) 4</TD>
+          <TD height="19">Set style italic huruf</TD></TR>
+        <TR>
+          <TD height="19">(Esc) 5</TD>
+          <TD height="19">Unset style italic huruf</TD></TR>
+        <TR>
+          <TD height="19">(Esc) -1 <i> or</i>&nbsp;(Esc) -#1</TD>
+          <TD height="19">Set style garis bawah huruf</TD></TR>
+        <TR>
+          <TD height="19">(Esc) -0 <i> or</i>&nbsp;(Esc) -#0</TD>
+          <TD height="19">Unset garis bawah style huruf</TD></TR>
+        <TR>
+          <TD height="19">(Esc) P</TD>
+          <TD height="19">Pica styel huruf (10 cpi)</TD></TR>
+        <TR>
+          <TD height="19">(Esc) M</TD>
+          <TD height="19">Elite Style huruf (12 cpi)</TD></TR>
+        <TR>
+          <TD height="19">#14 <i> atau</i>&nbsp;(Esc) #14</TD>
+          <TD height="19">Double lebar huruf (<font size="2">sampai akhir dari satu baris)</font></TD></TR>
+        <TR>
+          <TD height="19">#20</TD>
+          <TD height="19">Normal lebar font</TD></TR>
+        <TR>
+          <TD height="19">(Esc) W1 <i>atau</i> (Esc) W #1</TD>
+          <TD height="19">Double lebar huruf (<font size="2">sampai pembatalan khusus)</font></TD></TR>
+        <TR>
+          <TD height="19">(Esc) W0 <i>atau</i> (Esc) W #0</TD>
+          <TD height="19">Double lebar huruf batal</TD></TR>
+        <tr>
+          <TD height="19">(Esc) w1 <i>atau</i> (Esc) w #1</TD>
+          <TD height="19">Double tinggi huruf (<font size="2">sampai pembatalan khusus)</font></TD>
+        </tr>
+        <tr>
+          <TD height="19">(Esc) w0 <i>atau</i> (Esc) w #0</TD>
+          <TD height="19">Double tinggi huruf batal</TD>
+        </tr>
+        <tr>
+          <TD height="19">(Esc) g_</TD>
+          <TD height="19">Pilih mode 15 CPI</TD>
+        </tr>
+        <TR>
+          <TD height="19">#15 <i> atau</i>&nbsp;(Esc) #15</TD>
+          <TD height="19">Kerapatan huruf-huruf</TD></TR>
+        <TR>
+          <TD height="19">#18</TD>
+          <TD height="19">Ketidak rapatan huruf-huruf</TD></TR>
+        <TR>
+          <TD height="67">(Esc) rx</TD>
+          <TD height="67">Set warna teks dimana x adalah code ASCII:
+            <table border="0" width="100%" cellspacing="1" cellpadding="0">
+              <tr>
+                <td width="25%">
+            #0 -- black</td>
+                <td width="25%">
+            #1 -- magenta</td>
+                <td width="25%">
+            #2 -- cyan</td>
+                <td width="25%">
+            #3 -- violet</td>
+              </tr>
+              <tr>
+                <td width="25%">
+            #4 -- yellow</td>
+                <td width="25%">
+            #5 -- red</td>
+                <td width="25%">
+            #6 -- green</td>
+                <td width="25%"></td>
+              </tr>
+            </table>
+          </TD></TR>
+        <tr>
+          <TD height="19">(Esc) S0 <i> atau</i>&nbsp; (Esc) S#0</TD>
+          <TD height="19">Set mode pencetakan superscript</TD>
+        </tr>
+        <TR>
+          <TD height="19">(Esc) S1 <i> atau</i>&nbsp;(Esc) S#1</TD>
+          <TD height="19">Set mode pencetakan subscript</TD></TR>
+        <TR>
+          <TD height="19">(Esc) T</TD>
+          <TD height="19">Batal mode pencetakan superscript atau subscript</TD></TR>
+        <TR>
+          <TD height="19">(Esc) B</TD>
+          <TD height="19">Set tab vertikal</TD></TR>
+        <TR>
+          <TD height="19">#11</TD>
+          <TD height="19">Tab secara vertikal</TD></TR>
+        <TR>
+          <TD height="19">(Esc) D</TD>
+          <TD height="19">Set tab horizontal</TD></TR>
+        <TR>
+          <TD height="13">#9</TD>
+          <TD height="13">Tab secara horizontal</TD></TR>
+        <TR>
+          <TD height="13">(Esc) K{##}</TD>
+          <TD height="13">Pilih grafik 60 dpi</TD></TR>
+        <TR>
+          <TD height="13">(Esc) L{##} <i>atau </i>(Esc) Y{##}</TD>
+          <TD height="13">Pilih grafik 120 dpi</TD></TR>
+        <TR>
+          <TD height="13">(Esc) Z{##}</TD>
+          <TD height="13">Pilih grafik 240 dpi</TD></TR></TABLE>
+      <p>&nbsp;</TD>
+  </tr>
+  <TR>
+    <TD width="100%">
+      <h3>&nbsp;<a name="3"></a>HP PCL sekuen emulasi</h3>
+      <p align="center">
+      <img border="0" src="images/seq-pcl.png" width="433" height="486" alt="sekuen pencetakan dos compatible epson">
+      <TABLE cellSpacing="1" cellPadding="5" border="1" width="630">
+        
+        <TR>
+          <TD>(Esc) (s3B atau&nbsp;(Esc) (s1B</TD>
+          <TD>Set style ketebalan huruf</TD></TR>
+        <TR>
+          <TD>(Esc) (s0B</TD>
+          <TD>Unset style ketebalan huruf</TD></TR>
+        <TR>
+          <TD>(Esc) (s1S</TD>
+          <TD>Set style italic huruf</TD></TR>
+        <TR>
+          <TD>(Esc) (s0S</TD>
+          <TD>Unset style italic huruf</TD></TR>
+        <TR>
+          <TD>(Esc) &amp;d1D</TD>
+          <TD>Set style garis bawah huruf</TD></TR>
+        <TR>
+          <TD>(Esc) &amp;d@</TD>
+          <TD>Unset garis bawah style huruf</TD></TR>
+        <tr>
+          <TD>(Esc) (s1U</TD>
+          <TD>Set mode pencetakan superscript</TD>
+        </tr>
+        <TR>
+          <TD>(Esc) (s-1U</TD>
+          <TD>Set mode pencetakan subscript</TD></TR>
+        <TR>
+          <TD>(Esc) (s0U</TD>
+          <TD>Batal mode pencetakan superscript atau subscript</TD></TR>
+        <tr>
+          <TD align="left">(Esc) (s{0+}H</TD>
+          <TD align="left">Set lebar huruf (chars per inch) dalam xx. Secara defaulf diterima xx=12</TD>
+        </tr>
+        <tr>
+          <TD align="left">(Esc) &amp;l{0+}D</TD>
+          <TD align="left">Set tinggi huruf (baris per inch ) dalam xx. Secara defaut diterima xx=06</TD>
+        </tr>
+        <tr>
+          <TD align="left">(Esc) &amp;a{0+}H</TD>
+          <TD align="left">Set posisi absolute horizontal dalam 1/720&quot; unit</TD>
+        </tr>
+        <tr>
+          <TD align="left">(Esc) &amp;a(0+}V</TD>
+          <TD align="left">Set posisi absolut vertikal dalam 1/720&quot; unit</TD>
+        </tr>
+        <tr>
+          <TD align="left">(Esc) &amp;l{0+}E</TD>
+          <TD align="left">Margin atas (lines)</TD>
+        </tr>
+        <tr>
+          <TD align="left">(Esc) &amp;l{0+}F</TD>
+          <TD align="left">Panjang Teks (lines)</TD>
+        </tr>
+        <tr>
+          <TD align="left">(Esc) &amp;a{0+}L</TD>
+          <TD align="left">Margin kiri (cols)</TD>
+        </tr>
+        <tr>
+          <TD align="left">(Esc) &amp;a{0+}M</TD>
+          <TD align="left">Margin kanan (cols)</TD>
+        </tr>
+      </TABLE>
+      <p>&nbsp;</p>
+    </TD></TR>
+  <TR>
+    <TD align="middle" width="100%">
+      <HR>
+      <A href="index.htm">Tentang</A> | <A href="readme.htm">Manual</A> | <A href="news.htm">Hal baru</A> | <A href="download.htm">Download </A>| <A href="vox.htm">Vox populi</A> | <A href="order.htm">Pesan</A> | <A href="faq.htm">Tanya-jawab (F.A.Q)</A> | <A href="mailto:support@dosprn.com?Subject=DOSPRN%20support">Dukungan</A> | <A href="login.htm"> Login </A>
+
+      <HR>
+    </TD></TR></TABLE></CENTER></DIV>
+
+
+<!--WEBSITECEO:BEGIN:{764EEF2E-BC11-45CF-8627-300CE1BA2219}-->
+<!--
+Do NOT modify this script to avoid traffic misrepresentation! 
+Web CEO 4 0300/1
+Code initially inserted into: "/sequences.htm".
+-->
+<script type="text/javascript"><!--
+// hitlens v1.2.7
+function hitlens_embedded() {
+var id = 5192;
+var pc = 103;
+var PAGENAME = escape('');
+var CONTENTGROUP = escape('');
+var TRANSACTION = escape('');
+var TRANSACTION_ID = 0;
+var ORDER = escape('');
+return "id="+id+"&pc="+pc+"&p="+PAGENAME+"&gr="+CONTENTGROUP+"&tr="+TRANSACTION+"&trid="+TRANSACTION_ID+"&ord="+ORDER;
+}
+//--></script>
+<script type="text/javascript" src="/webceo.js"></script>
+<!--WEBSITECEO:END:{764EEF2E-BC11-45CF-8627-300CE1BA2219}-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39647417-1', 'dosprn.com');
+  ga('send', 'pageview');
+
+</script>
+</body></HTML>
