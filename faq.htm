@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD><TITLE>Halaman FAQ DOSPRN 1.88</TITLE>
+<HTML><HEAD><TITLE>Halaman FAQ DOSPRN 1.89</TITLE>
 <META http-equiv="Content-Language" content="id">
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <META name="Description" content="Jawaban diatas sering ditanyakan untuk DOSPRN dan pencetakan dos printer">
@@ -23,7 +23,7 @@
     <TD width="100%">      <table border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td width="50"><IMG src="images/logo.gif" ALT="Mencetak dari DOS di ke/terhadap printer ber jalan pada Windows98, WinXP, Windows2000" width="42" height="39"></td>
-          <td width="281"><font size="6"><b>DOSPRN </b></font><font size="6"><b>1.88</b></font></td>
+          <td width="281"><font size="6"><b>DOSPRN </b></font><font size="6"><b>1.89</b></font></td>
           <td width="194">      
       <table border="2" bgcolor="#C0C0C0" cellpadding="4" cellspacing="4">
         <tr>
@@ -64,8 +64,6 @@
           </h4>
         <li><h4><a href="#17">Saya dapat mencetak file teks dengan opsi DOSPRN &quot;Print file&quot; tetapi laporan dari program DOS saya adalah tidak tercapture Mengapa ?</a>
           </h4>
-        <li><h4><a href="#18">Saya telah test DOSPRN mencoba untuk mencetak diluar (file) dengan &quot;copy filename prn&quot; perintah DOS. Saya mendapatkan satu kesimpulan DOSPRN tidak dapat menproses perintah DOS sederhana </a><a href="#18">Ada saran, silahkan ?</a></h4>
-        </li>
       </ul>
           
         </li>
@@ -155,17 +153,6 @@
           <p><a name="17"></a><b>Saya dapt mencetaka satu file teks dengan DOSPRN opsi &quot;File Cetakan &quot; tetapi laporan dari program DOS saya tidak ditangkap Mengapa ?<br>
           <br>
           </b>Beberapa program DOs mencoba untuk mengatur printer secara langsung melalui port-port input/aoutput perangkat keras, tanpa menggunakan fungsi-fungsi DOS. DOSPRN tidak bisa menangkap laporan dari beberapa program. Jika aplikasi DOS anda bisa merekam (save) laporan sebagai sebuah file teks, diproses sebagai berikut: bersihkan DOSPRN &quot; Tangkap port&quot; pilih dan set up proprti &quot;job filename&quot; untuk mencocokkan file laporan anda Jangan lupa bahwa file sementara akan di hapus oleh DOSPRN setelah pencetakan. .
-          </p>
-        <li>
-          <p><a name="18"></a><b>Saya telah mencoba DOSPRN untuk mencetak keluar file dengan perintah DOS &quot;copy filename.prn&quot; Saya telah dapat kesimpulan bahwa DOSPRN tidak dapat memproses perintah-perintah sederhana DOS. Ada saran-saran, silahkan<br>
-          <br>
-          </b>Saya kira anda menggunakan sistem operasi Windows NT/2000/XP OS ini tidak mempunyai DOS murni. Kotak -DOS bukan DOS dan NT/2000/Konsol XP perintah bukan perintah DOS.<br>
-          <br>
-          Sebagai contoh, NT/2000/XP menggunakan satu perintah &quot;copy&quot; dari kernel 32-bit nya. Perintah standar yang Lain untuk pencetakan berkas (file) ( <b>CETAKAN</b> perintah) bukan satu program DOS umum. Hal ini adalah asli konsol program Win32 (anda bisa menemui itu di direktori SYSTEM32, buka itu dengan viewer hexadecimal dan untuk <br>dipastikan).&nbsp;<br>
-          <br>
-          DOSPRN (penamaan driver dos <i><b>PRN2FILE</b></i> tidak dapat menangkap output kernel Win32 ketika perintah-perintah ini tidak dapat redirect COPY dan PRINT.<br>
-          <br>
-          Jika anda ingin mencetak TXT murni berkas (file) yang saya rekomendasikan pencetakan mereka dengan perintah <p><code>copy filename &quot;%USERPROFILE%\prnspl1&quot;</code></p>. Dalam hal ini berkas (file) anda akan sudah secara langsung ke kumparan DOSPRN 'buffer' dan akan diproses dengan segera.
           </p>
       </ul>
           
